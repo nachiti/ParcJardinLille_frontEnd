@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
@@ -10,11 +11,12 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/imageView2"
             android:layout_width="411dp"
             android:layout_height="214dp"
             android:layout_marginLeft="3dip"
-            android:scaleType="center"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>
 
@@ -24,7 +26,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/nomParcJardin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nom du parc " />
@@ -59,7 +61,7 @@
             android:text="description du parc " />
 
         <TextView
-            android:id="@+id/plus"
+            android:id="@+id/plusSuite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -68,8 +70,8 @@
             android:fontFamily="cursive"
             android:gravity="end"
             android:onClick="Suite"
+            android:textColor="@color/colorVerde"
             android:text="Suite"
-            android:textColor="#3C693C"
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:typeface="monospace" />
@@ -82,49 +84,52 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonvide"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonDonnerAvis"
                 android:layout_width="151dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
                 android:background="@color/colorVerde"
                 android:gravity="center"
+                android:layout_margin="5dp"
+                android:onClick="DonnerAvis"
                 android:text="Donner un avis"
 
                 android:textColor="@color/textcolore" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button2Itineraire"
                 android:layout_width="116dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:gravity="center"
-                android:text="Itinéraire"
                 android:background="@color/colorVerde"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:onClick="itineraire"
+                android:text="Itinéraire"
                 android:textColor="@color/textcolore" />
 
         </LinearLayout>
 
     </LinearLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@android:style/Widget.DeviceDefault.ScrollView">
 
     <LinearLayout
+        android:id="@+id/LinearLayoutCommentaires"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/TextViewComment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="commentaires" />
+            android:text="Comment du parc " />
     </LinearLayout>
+</ScrollView>
 
 </LinearLayout>

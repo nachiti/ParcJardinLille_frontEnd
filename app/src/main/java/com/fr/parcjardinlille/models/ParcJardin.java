@@ -1,29 +1,43 @@
 package com.fr.parcjardinlille.models;
 
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Collection;
 
 public class ParcJardin   {
-
+    //@SerializedName("id" )
     private Long id;
+    @SerializedName("type" )
     private Type type;
+    @SerializedName("nom" )
     private String nom;
-    private double latitude, longitude;
+    @SerializedName("latitude" )
+    private double latitude;
+    @SerializedName("longitude" )
+    private double  longitude;
+    @SerializedName("description" )
     private String description;
     private Collection<Service> services;
+    @SerializedName("adresse" )
     private String adresse;
+    @SerializedName("horaire" )
     private String horaire;
-    private int noteGlobale;
+    @SerializedName("noteGlobale" )
+    private String noteGlobale;
+    @SerializedName("commentaires" )
     private Collection<Commentaire> commentaires;
+    @SerializedName("images" )
     private Collection<Image> images;
 
-    public ParcJardin(Type type, String nom, double latitude, double longitude, String description, String adresse) {
+    public ParcJardin(Type type, String nom, double latitude, double longitude, String description, String adresse ,String noteGlobale) {
         this.type = type;
         this.nom = nom;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
         this.adresse = adresse;
+        this.noteGlobale=noteGlobale;
     }
 
     public Long getId() {
@@ -98,11 +112,11 @@ public class ParcJardin   {
         this.horaire = horaire;
     }
 
-    public int getNoteGlobale() {
+    public String getNoteGlobale() {
         return noteGlobale;
     }
 
-    public void setNoteGlobale(int noteGlobale) {
+    public void setNoteGlobale(String  noteGlobale) {
         this.noteGlobale = noteGlobale;
     }
 

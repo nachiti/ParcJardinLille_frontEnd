@@ -1,14 +1,29 @@
 package com.fr.parcjardinlille.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Commentaire {
 
+    @SerializedName("id" )
     private Long id;
-    private Utilisateur utilisateur;
+    @SerializedName("nomUtilisateur" )
+    private String utilisateur;
+    @SerializedName("note" )
     private int note;
+    @SerializedName("message" )
     private String message;
+    @SerializedName("ParcJardin" )
     private ParcJardin parcJardin;
 
-    public Commentaire(Utilisateur utilisateur, int note, String message, ParcJardin parcJardin) {
+    public Commentaire(Long id, String utilisateur, int note, String message, ParcJardin parcJardin) {
+        this.id = id;
+        this.utilisateur = utilisateur;
+        this.note = note;
+        this.message = message;
+        this.parcJardin = parcJardin;
+    }
+
+    public Commentaire(String utilisateur, int note, String message, ParcJardin parcJardin) {
         this.utilisateur = utilisateur;
         this.note = note;
         this.message = message;
@@ -34,11 +49,11 @@ public class Commentaire {
         this.id = id;
     }
 
-    public Utilisateur getUtilisateur() {
+    public String getUtilisateur() {
         return utilisateur;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur) {
+    public void setUtilisateur(String utilisateur) {
         this.utilisateur = utilisateur;
     }
 

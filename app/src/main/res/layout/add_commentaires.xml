@@ -6,8 +6,10 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="293dp"
-        android:text="TextView" />
+        android:layout_height="176dp"
+        android:text="Votre avis nous intéresse :)"
+        android:layout_gravity="center"
+        android:textSize="32sp" />
 
     <RatingBar
         android:id="@+id/ratingBar2"
@@ -18,36 +20,56 @@
         android:numStars="5" />
 
     <EditText
+        android:id="@+id/nameUser"
+        android:layout_width="match_parent"
+        android:layout_height="213dp"
+        android:layout_weight="0.14"
+        android:hint="Rentrez Votre Nome" />
+
+    <EditText
         android:id="@+id/Commentaire"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="325dp"
         android:layout_weight="0.14"
-        android:hint="Rentrez Votre Commentaire!!"
+
+        android:hint="Ecrire Votre Commentaire!!"
+        android:layout_gravity="top"
         android:inputType="textMultiLine" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="right"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/Annuler"
-            android:layout_width="wrap_content"
+            android:id="@+id/Publier"
+            android:layout_width="151dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:background="@color/colorVerde"
+
+            android:gravity="center"
+
+            android:text="Publier"
+            android:textColor="@color/textcolore"
+            android:typeface="monospace" />
+        <Button
+            android:id="@+id/Annuler"
+
+            android:layout_width="151dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/colorVerde"
+            android:gravity="center"
+
+
             android:text="Annuler"
             android:textColor="@color/textcolore"
             android:typeface="monospace" />
 
-        <Button
-            android:id="@+id/Publier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:background="@color/colorVerde"
-            android:text="Publier"
-            android:textColor="@color/textcolore"
-            android:typeface="monospace" />
+
     </LinearLayout>
 
 </LinearLayout>

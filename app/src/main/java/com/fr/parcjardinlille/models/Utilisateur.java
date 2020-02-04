@@ -2,7 +2,7 @@ package com.fr.parcjardinlille.models;
 
 import java.util.Collection;
 
-class Utilisateur {
+public class Utilisateur {
 
     private Long id;
     private String pseudo;

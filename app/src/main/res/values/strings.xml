@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ParcJardinLille</string>
+    <string name="Detail">DetailParcJardin</string>
+    <string name="DescriptionFragment">Description_fragment</string>
 </resources>

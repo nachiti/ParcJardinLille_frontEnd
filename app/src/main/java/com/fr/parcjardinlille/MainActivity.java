@@ -1,20 +1,19 @@
 package com.fr.parcjardinlille;
 
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
-
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
 
 import com.fr.parcjardinlille.Services.Service;
 import com.fr.parcjardinlille.models.ParcJardin;
@@ -97,8 +96,7 @@ public class MainActivity extends FragmentActivity implements LocationListener {
         }
 
         /*Inscrivez-vous pour les mises à jour d'emplacement à l'aide du fournisseur nommé et d'une intention en attente*/
-        locationManager.requestLocationUpdates(nomFornisseurLocalisationGPS,30,0,this);
-
+        locationManager.requestLocationUpdates(nomFornisseurLocalisationGPS,60,0,this);
 
         getAllParcJardinLille();
 
@@ -106,8 +104,40 @@ public class MainActivity extends FragmentActivity implements LocationListener {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 Intent intent = new Intent(MainActivity.this, DetailParcJardin.class);
-                intent.putExtra("nameJardinParcLille", marker.getTitle());
+                intent.putExtra("NameParcJardinSelectionner", marker.getTitle());
                 startActivity(intent);
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Service service = URLretrofit();
+                Toast.makeText(getApplication(),"Vous chercher m : "+query,Toast.LENGTH_SHORT).show();
+                System.out.println("coucouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu2");
+                service.getParcJardinnSearch(query, new Callback<List<ParcJardin>>() {
+                    @Override
+                    public void success(List<ParcJardin> parcJardins, Response response) {
+                        if(parcJardins == null || parcJardins.size() == 0 ){
+                            Toast.makeText(getApplication(),"Oops Parc Ou Jardin n'existe pas :(  ",Toast.LENGTH_SHORT).show();
+                            ajoutPointAuMap(parcJardins);
+                        }else{
+
+                            ajoutPointAuMap(parcJardins);
+                        }
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Toast.makeText(getApplication()," Oops Parc Ou Jardin n'existe pas :( ",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
                 return false;
             }
         });
@@ -130,16 +160,23 @@ public class MainActivity extends FragmentActivity implements LocationListener {
      * Recupere les tous parcjardin
     * */
     public void getAllParcJardinLille(){
+
         Service service = URLretrofit();
+
         service.getAllParc(new Callback<List<ParcJardin>>() {
             @Override
             public void success(List<ParcJardin> parcJardins, Response response) {
+
+                /*for (ParcJardin parcJardin:parcJardins)
+                System.out.println(parcJardin);*/
                 ajoutPointAuMap(parcJardins);
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(getApplication()," getAllParcJardinLille : n'exist pas "+error, Toast.LENGTH_SHORT).show();
+                System.out.println("coucouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu3");
+                System.out.println(error);
+                Toast.makeText(getApplication()," getAllParcJardinLille : Oops n'exist pas :( "+error, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -153,12 +190,14 @@ public class MainActivity extends FragmentActivity implements LocationListener {
         service.getParcJardinnService(serviceName, new Callback<List<ParcJardin>>() {
             @Override
             public void success(List<ParcJardin> parcJardins, Response response) {
+                System.out.println("coucouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu1");
                 ajoutPointAuMap(parcJardins);
+
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(getApplication()," getParcJardinByService(nameservice): Parc Ou Jardin n'existe pas !! ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication()," getParcJardinByService(nameservice):Oops Parc Ou Jardin n'existe pas :(",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -182,7 +221,7 @@ public class MainActivity extends FragmentActivity implements LocationListener {
     public void onLocationChanged(Location location) {
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(11));
     }
 
     @Override
