@@ -28,7 +28,7 @@ public class ParcJardin   {
     @SerializedName("commentaires" )
     private Collection<Commentaire> commentaires;
     @SerializedName("images" )
-    private Collection<Image> images;
+    private Collection<Photo> images;
 
     public ParcJardin(Type type, String nom, double latitude, double longitude, String description, String adresse ,String noteGlobale) {
         this.type = type;
@@ -128,11 +128,11 @@ public class ParcJardin   {
         this.commentaires = commentaires;
     }
 
-    public Collection<Image> getImages() {
+    public Collection<Photo> getImages() {
         return images;
     }
 
-    public void setImages(Collection<Image> images) {
+    public void setImages(Collection<Photo> images) {
         this.images = images;
     }
 }

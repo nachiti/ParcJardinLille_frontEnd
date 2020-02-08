@@ -1,12 +1,12 @@
 package com.fr.parcjardinlille.models;
 
-class Image {
+class Photo {
 
     private Long id;
     private String nom;
     private ParcJardin parcJardin;
 
-    public Image(String nom, ParcJardin parcJardin) {
+    public Photo(String nom, ParcJardin parcJardin) {
         this.nom = nom;
         this.parcJardin = parcJardin;
     }

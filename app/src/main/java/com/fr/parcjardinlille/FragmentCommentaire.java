@@ -61,7 +61,7 @@ public class FragmentCommentaire extends DialogFragment {
                     commentaire.setText("");
                 }
                 else
-                    Toast.makeText(getContext(),"Ooops Veuillez remplir les champs",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Champ obligatoires vide :Veuillez remplir les champs",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -78,10 +78,10 @@ public class FragmentCommentaire extends DialogFragment {
         Service service = URLretrofit();
         nameuserS = NameUser.getText().toString().trim();
         commentaireUser =commentaire.getText().toString().trim();
-        nombreEtoile = barEtoile.getNumStars();
+        nombreEtoile = (int) barEtoile.getRating();
 
 
-    //@GET("/addcommentaire/{idpj}/{nameUtilisateur}/{note}/{message}")
+    //@POST("/addcommentaire/{idpj}/{nameUtilisateur}/{note}/{message}")
         service.addNewCommentaire(parcJardin_getId,nameuserS,nombreEtoile,commentaireUser, new Callback<Commentaire>() {
             @Override
             public void success(Commentaire c, Response response) {
