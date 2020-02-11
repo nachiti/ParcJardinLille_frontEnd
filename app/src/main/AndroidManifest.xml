@@ -29,11 +29,11 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".DetailParcJardin"
-            android:label="@string/Detail"/>
+            android:label="Detail jardin"/>
         <activity android:name=".Description_fragment"
             android:label="@string/DescriptionFragment"/>
         <activity android:name=".All_comments"
-            android:label="@string/AllComments"/>
+            android:label="Commentaires"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

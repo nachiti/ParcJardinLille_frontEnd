@@ -60,6 +60,7 @@ public class FragmentCommentaire extends DialogFragment {
                     PublierCommentaire();
                     NameUser.setText("");
                     commentaire.setText("");
+                    getActivity().finish();
                 }
                 else
                     Toast.makeText(getContext(),"Champ obligatoires vide :Veuillez remplir les champs",Toast.LENGTH_SHORT).show();

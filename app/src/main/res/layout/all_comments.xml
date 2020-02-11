@@ -25,6 +25,13 @@
                 android:saveEnabled="true"
                 android:scaleX="0.5"
                 android:scaleY="0.5" />
+            <TextView
+                android:id="@+id/note"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#000000"
+                android:text="Note moyenne" />
 
             <TextView
                 android:id="@+id/TextViewComment"
@@ -32,6 +39,7 @@
                 android:layout_height="match_parent"
                 android:textColor="#000000"
                 android:text="Comment du parc " />
+
         </LinearLayout>
     </ScrollView>
 
@@ -40,9 +48,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorVerde"
-        android:onClick="Return"
         android:textColor="@color/textcolore"
-        android:text="Return" />
+        android:text="Retour" />
 
 
 </LinearLayout>

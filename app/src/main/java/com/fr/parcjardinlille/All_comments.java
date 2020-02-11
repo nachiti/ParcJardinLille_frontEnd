@@ -68,17 +68,14 @@ public class All_comments extends AppCompatActivity {
         /*adresse = (TextView)findViewById(R.id.adresse);
         description = (TextView)findViewById(R.id.description);*/
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         NameParcJardinSelectionner = intent.getStringExtra("NameParcJardinSelectionner");
-        System.out.println("Actualiser   <<<<<<<<<<  " + NameParcJardinSelectionner);
         Actualiser(NameParcJardinSelectionner);
 
         buttonReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              /*  onCloseFragment();
-                ......................
-                getActivity().onBackPressed();*/
+               finish();
             }
         });
 

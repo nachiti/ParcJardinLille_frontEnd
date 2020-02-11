@@ -8,39 +8,42 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:gravity="center"
         android:text="Votre avis nous intéresse :)"
-        android:textSize="32sp" />
+        android:textSize="18sp" />
 
     <RatingBar
         android:id="@+id/ratingBar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+
         android:max="5"
         android:numStars="5" />
 
     <EditText
         android:id="@+id/nameUser"
         android:layout_width="match_parent"
-        android:layout_height="82dp"
-        android:layout_weight="0.14"
-        android:hint="Rentrez Votre Nome" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_height="wrap_content"
+        android:hint="Nom" />
 
     <EditText
         android:id="@+id/Commentaire"
         android:layout_width="match_parent"
-        android:layout_height="405dp"
+        android:layout_height="200dp"
         android:layout_gravity="top"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
 
-        android:layout_weight="0.14"
-        android:hint="Ecrire Votre Commentaire!!"
+        android:hint="Commentaire"
         android:inputType="textMultiLine" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
