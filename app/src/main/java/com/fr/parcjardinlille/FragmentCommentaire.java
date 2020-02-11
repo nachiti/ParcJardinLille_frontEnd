@@ -23,6 +23,7 @@ public class FragmentCommentaire extends DialogFragment {
 
     private Long parcJardin_getId;
     private Button Publier;
+    private Button Annuler;
     private RatingBar barEtoile;
     private EditText commentaire,NameUser;
 
@@ -44,10 +45,10 @@ public class FragmentCommentaire extends DialogFragment {
 
     public  View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle){
 
-        View view = inflater.inflate(R.layout.add_commentaires,null);
+        final View view = inflater.inflate(R.layout.add_commentaires,null);
 
         Publier = (Button)view.findViewById(R.id.Publier);
-
+        Annuler =(Button)view.findViewById(R.id.Annuler);
         barEtoile = (RatingBar)view.findViewById(R.id.ratingBar2);
         NameUser =(EditText)view.findViewById(R.id.nameUser);
         commentaire = (EditText)view.findViewById(R.id.Commentaire);
@@ -65,6 +66,12 @@ public class FragmentCommentaire extends DialogFragment {
 
             }
         });
+        Annuler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();            }
+        });
+
 
         return view;
 

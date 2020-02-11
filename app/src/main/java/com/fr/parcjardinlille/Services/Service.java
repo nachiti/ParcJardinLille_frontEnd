@@ -12,8 +12,8 @@ import retrofit.http.Path;
 
 public interface Service {
 
-    //public static final String API_URL = "http://parc-jardin-lille.herokuapp.com";//My ip machine :8080
-    public static final String API_URL = "http://192.168.0.18:8080";//My ip machine :8080
+    public static final String API_URL = "http://parc-jardin-lille.herokuapp.com";//My ip machine :8080
+   // public static final String API_URL = "http://192.168.0.18:8080";//My ip machine :8080
 
 
 

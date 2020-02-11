@@ -40,6 +40,7 @@ public class DetailParcJardin extends AppCompatActivity {
     String parcJardin_getDescription;
     Long parcJardin_getId;
     private Service service;
+    //All_comments All_fragmenet;
     private static final String TAG = DetailParcJardin.class.getSimpleName();
     public Service URLretrofit(){
         Service service = new RestAdapter.Builder()
@@ -89,13 +90,16 @@ public class DetailParcJardin extends AppCompatActivity {
 
                 latitude = parcJardin.getLatitude();
                 longitude=parcJardin.getLongitude();
-
+               // nomParcJardin = parcJardin.getNom();
                 nomParcJardin.setText(parcJardin.getNom());
+                nomParcJardin.setTextSize(20);
 
-                adresse.setText(parcJardin.getAdresse());
-                description.setText(parcJardin.getDescription());
-                horaireTextView.setText(parcJardin.getHoraire());
-
+                adresse.setText("Adresse :"+parcJardin.getAdresse());
+                adresse.setTextSize(15);
+                description.setText("Description :"+parcJardin.getDescription());
+                description.setTextSize(15);
+                horaireTextView.setText("Horaire   :"+parcJardin.getHoraire());
+                //horaireTextView.setTextSize(15);
                 parcJardin_getDescription = parcJardin.getDescription();
                 parcJardin_getId = parcJardin.getId();
 
@@ -178,6 +182,7 @@ public class DetailParcJardin extends AppCompatActivity {
 
                     TextView d2 = new TextView( DetailParcJardin.this);
                     d2.setText(commentaires.get(i).getMessage());
+                    d2.setTextSize(15);
 
                     d2.setPadding(40,0,1,0);
 
@@ -187,6 +192,9 @@ public class DetailParcJardin extends AppCompatActivity {
 
                     linearH.addView(linear);
                     layoutCommentaire.addView(linearH);
+
+
+
                 }
                 try{
                     ratingBarEtoile.setRating(numberStar/commentaires.size());
@@ -208,8 +216,30 @@ public class DetailParcJardin extends AppCompatActivity {
         FragmentCommentaire dfragmenet = new FragmentCommentaire();
         dfragmenet.setIdParcJardin(parcJardin_getId);
         dfragmenet.show(fragmentManager,"Commentaire : ");
+
         return true;
     }
+
+    public boolean GetAllComments(View v){
+
+        //All_comments description_fragment = new All_comments();
+     //   description_fragment.setIdParcJardin(parcJardin_getId);
+        //description_fragment.setDescription(description.getText().toString());
+
+        //description_fragment.setDescription(parcJardin_getDescription);
+
+       // description_fragment.show(fragmentManager,"description : ");
+
+
+        Intent intent = new Intent(DetailParcJardin.this, All_comments.class);
+        intent.putExtra("NameParcJardinSelectionner", NameParcJardinSelectionner);
+        System.out.println("NameParcJardinSelectionner >>>>>>>>>> "+ NameParcJardinSelectionner);
+        startActivity(intent);
+        return false;
+      //  System.out.println("vvvvvv GetAllComments vvvvvvvvv"+description.getText().toString());
+
+    }
+
 
     /**
      * on click sur button itineraire return maps

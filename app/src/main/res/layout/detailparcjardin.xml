@@ -18,23 +18,25 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="411dp"
-            android:layout_height="214dp"
+            android:layout_height="200dp"
             android:layout_marginLeft="3dip"
-            android:scaleType="centerCrop"
             android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="313dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/nomParcJardin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nom du parc " />
+            android:layout_height="35dp"
+            android:width="10dp"
+            android:text="Nom du parc "
+            android:textColor="#000000" />
 
         <RatingBar
             android:id="@+id/ratingBar"
@@ -51,32 +53,35 @@
             android:id="@+id/adresse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="adresse du parc " />
+            android:text="adresse du parc "
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/horaire"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Horaire du parc " />
+            android:text="Horaire du parc "
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="description du parc " />
+            android:text="description du parc "
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/plusSuite"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="49dp"
             android:layout_gravity="right"
             android:layout_marginBottom="30px"
             android:layout_weight="0.31"
             android:fontFamily="cursive"
             android:gravity="end"
             android:onClick="Suite"
-            android:textColor="@color/colorVerde"
             android:text="Suite"
+            android:textColor="@color/colorVerde"
             android:textSize="18sp"
             android:textStyle="normal|bold"
             android:typeface="monospace" />
@@ -89,29 +94,40 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="320dp"
             android:gravity="right"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/buttonDonnerAvis"
-                android:layout_width="151dp"
+                android:id="@+id/buttonGetAllComments"
+                android:layout_width="116dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:background="@color/colorVerde"
                 android:gravity="center"
+                android:onClick="GetAllComments"
+                android:text="All Comments"
+                android:textColor="@color/textcolore" />
+
+
+            <Button
+                android:id="@+id/buttonDonnerAvis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:background="@color/colorVerde"
+                android:gravity="center"
                 android:onClick="DonnerAvis"
                 android:text="Donner un avis"
-
                 android:textColor="@color/textcolore" />
 
             <Button
                 android:id="@+id/button2Itineraire"
-                android:layout_width="116dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:background="@color/colorVerde"
                 android:gravity="center"
-                android:layout_margin="5dp"
                 android:onClick="itineraire"
                 android:text="Itinéraire"
                 android:textColor="@color/textcolore" />
@@ -119,22 +135,24 @@
         </LinearLayout>
 
     </LinearLayout>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@android:style/Widget.DeviceDefault.ScrollView">
 
-    <LinearLayout
-        android:id="@+id/LinearLayoutCommentaires"
+    <ScrollView
+        style="@android:style/Widget.DeviceDefault.ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/TextViewComment"
+        android:layout_height="190dp">
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutCommentaires"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Comment du parc " />
-    </LinearLayout>
-</ScrollView>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/TextViewComment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Comment du parc " />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

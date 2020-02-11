@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        style="@android:style/Widget.DeviceDefault.ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="552dp">
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAllComments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RatingBar
+                android:id="@+id/ratingBarComments"
+                style="@android:style/Theme"
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:layout_gravity="center"
+                android:numStars="5"
+                android:saveEnabled="true"
+                android:scaleX="0.5"
+                android:scaleY="0.5" />
+
+            <TextView
+                android:id="@+id/TextViewComment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#000000"
+                android:text="Comment du parc " />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonReturn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorVerde"
+        android:onClick="Return"
+        android:textColor="@color/textcolore"
+        android:text="Return" />
+
+
+</LinearLayout>
