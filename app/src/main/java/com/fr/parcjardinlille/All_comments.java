@@ -76,9 +76,9 @@ public class All_comments extends AppCompatActivity {
         buttonReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onCloseFragment();
+              /*  onCloseFragment();
                 ......................
-                getActivity().onBackPressed();
+                getActivity().onBackPressed();*/
             }
         });
 
